@@ -24,7 +24,7 @@ class CategoryController {
     async update({ request, response, params }) {
         const { id } = params;
         const data = request.all();
-        const category = await Category.findBy('id_category', id);
+        const category = await Category.findBy('id', id);
         category.merge(data);
         await category.save();
         return response.send(category);
