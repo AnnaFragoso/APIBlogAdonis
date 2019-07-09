@@ -17,10 +17,14 @@
 const Route = use('Route');
 
 Route.post('/register', 'AuthController.register');
+Route.post('/authenticate', 'AuthController.authenticate');
 
 Route.get('user', 'UserController.index');
 
-Route.post('/article', 'ArticleController.store');
+Route.post('/article', 'ArticleController.store').middleware('auth');
 
 Route.post('/category', 'CategoryController.store');
 Route.get('/category', 'CategoryController.index');
+Route.put('/category/:id', 'CategoryController.update');
+Route.get('/category/:id', 'CategoryController.show');
+Route.delete('/category/:id', 'CategoryController.destroy');

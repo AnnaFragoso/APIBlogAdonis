@@ -15,12 +15,24 @@ class CategoryController {
         response.status(200).send(categories);
     }
 
-    async update([ request, response, params ]) {
-
+    async show({ params, response }){
+        const data = await Category.findOrFail(params.id);
+        response.status(200).send(data);
+       // console.log(data);
     }
 
-    async destroy({ params, response}) {
-        
+    async update({ request, response, params }) {
+        const { id } = params;
+        const data = request.all();
+        const category = await Category.findBy('id_category', id);
+        category.merge(data);
+        await category.save();
+        return response.send(category);
+    }
+
+    async destroy({ params, response }) {
+        const data = await Category.findOrFail(params.id);
+        await data.delete();
     }
 
 }
