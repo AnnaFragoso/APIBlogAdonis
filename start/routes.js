@@ -19,10 +19,15 @@ const Route = use('Route');
 Route.post('/register', 'AuthController.register');
 Route.post('/authenticate', 'AuthController.authenticate');
 
+//User
 Route.get('user', 'UserController.index');
+Route.get('/user/:id', 'UserController.show');
+Route.delete('/user/:id', 'UserController.destroy');
 
+//Article
 Route.post('/article', 'ArticleController.store').middleware('auth');
 
+//Category
 Route.post('/category', 'CategoryController.store');
 Route.get('/category', 'CategoryController.index');
 Route.put('/category/:id', 'CategoryController.update');
