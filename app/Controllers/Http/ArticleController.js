@@ -20,6 +20,21 @@ class ArticleController {
        // console.log(post);
         response.status(200).send(post);
     }
+
+    async update({ request, response, params, auth }) {
+        data.id_users = auth.user.id;
+        const { id } = params;
+        const data = request.all();
+        const article = await Article.findOrFail('id', id);
+        article.merge(data);
+        await article.save();
+        return response.send(article);
+    }
+
+    async destroy({ request, response, params }) {
+        const data = await Article.findOrFail(params.id);
+        await data.delete();
+    }
 }
 
 module.exports = ArticleController
