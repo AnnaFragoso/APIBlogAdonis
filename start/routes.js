@@ -26,6 +26,7 @@ Route.delete('/user/:id', 'UserController.destroy');
 
 //Article
 Route.post('/article', 'ArticleController.store').middleware('auth');
+Route.get('/article', 'ArticleController.index');
 
 //Category
 Route.post('/category', 'CategoryController.store');
