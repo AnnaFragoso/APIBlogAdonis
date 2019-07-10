@@ -1,7 +1,6 @@
 'use strict'
 
 const Article = use('App/Models/Article');
-//const Auth = use('App/Models/Auth');
 const User = use('App/Models/User');
 
 class ArticleController {
@@ -17,7 +16,7 @@ class ArticleController {
         data.id_users = auth.user.id;
 
         const post = await Article.create(data);
-       // console.log(post);
+       
         response.status(200).send(post);
     }
 

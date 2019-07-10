@@ -18,7 +18,7 @@ class CategoryController {
     async show({ params, response }){
         const data = await Category.findOrFail(params.id);
         response.status(200).send(data);
-       // console.log(data);
+      
     }
 
     async update({ request, response, params }) {

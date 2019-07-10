@@ -22,6 +22,7 @@ Route.post('/authenticate', 'AuthController.authenticate');
 //User
 Route.get('user', 'UserController.index');
 Route.get('/user/:id', 'UserController.show');
+Route.put('/user/:id', 'UserController.update');
 Route.delete('/user/:id', 'UserController.destroy');
 
 //Article
