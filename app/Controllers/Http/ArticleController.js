@@ -21,11 +21,10 @@ class ArticleController {
         response.status(200).send(post);
     }
 
-    async update({ request, response, params, auth }) {
-        data.id_users = auth.user.id;
-        const { id } = params;
+    async update({ request, response, params }) {
         const data = request.all();
-        const article = await Article.findOrFail('id', id);
+        const { id } = params;
+        const article = await Article.findBy('id', id);
         article.merge(data);
         await article.save();
         return response.send(article);
