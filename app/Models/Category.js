@@ -5,7 +5,7 @@ const Model = use('Model')
 
 class Category extends Model {
     articles () {
-        return this.hasMany('App/Models/Article');
+        return this.hasMany('App/Models/Article', 'id', 'id_category');
     }
 }
 

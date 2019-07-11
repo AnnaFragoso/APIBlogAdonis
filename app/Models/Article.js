@@ -5,11 +5,11 @@ const Model = use('Model');
 
 class Article extends Model {
     users () {
-        return this.hasOne('App/Models/User');
+        return this.hasOne('App/Models/User', 'id_users', 'id');
     }
 
     categories () {
-        return this.hasOne('App/Models/Category');
+        return this.hasOne('App/Models/Category', 'id_category', 'id');
     }
 }
 

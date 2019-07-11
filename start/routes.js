@@ -31,6 +31,12 @@ Route.get('/article', 'ArticleController.index');
 Route.put('/article/:id', 'ArticleController.update');
 Route.delete('/article/:id', 'ArticleController.destroy');
 
+//ArticleCategory
+Route.get('/category/:id/article', 'ArticleCategoryController.index');
+
+//ArticleUser
+Route.get('/user/:id/article', 'ArticleUserController.index');
+
 //Category
 Route.post('/category', 'CategoryController.store');
 Route.get('/category', 'CategoryController.index');
